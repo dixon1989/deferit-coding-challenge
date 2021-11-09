@@ -1,0 +1,184 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Energy Australia",
+      "amount": 75.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "processing"
+    },
+    {
+      "id": 2,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Simply Energy",
+      "amount": 75.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "scheduled"
+    },
+    {
+      "id": 3,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Origin",
+      "amount": 75.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "unable to pay"
+    },
+    {
+      "id": 4,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Alinta Energy",
+      "amount": 75.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "paid"
+    },
+    {
+      "id": 5,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Checking Energy",
+      "amount": 105.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "scheduled"
+    },
+    {
+      "id": 6,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Checking Energy",
+      "amount": 103.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "paid"
+    },
+    {
+      "id": 7,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Checking Energy",
+      "amount": 105.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "scheduled"
+    },
+    {
+      "id": 8,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Checking Energy",
+      "amount": 15.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "unable to pay"
+    },
+    {
+      "id": 9,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Checking Energy",
+      "amount": 20.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "processing"
+    },
+    {
+      "id": 10,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Checking Energy",
+      "amount": 20.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "scheduled"
+    },
+    {
+      "id": 11,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Energy Australia",
+      "amount": 75.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "processing"
+    },
+    {
+      "id": 12,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Simply Energy",
+      "amount": 75.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "scheduled"
+    },
+    {
+      "id": 13,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Origin",
+      "amount": 75.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "unable to pay"
+    },
+    {
+      "id": 14,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Alinta Energy",
+      "amount": 75.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "paid"
+    },
+    {
+      "id": 15,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Checking Energy",
+      "amount": 105.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "scheduled"
+    },
+    {
+      "id": 16,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Checking Energy",
+      "amount": 103.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "paid"
+    },
+    {
+      "id": 17,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Checking Energy",
+      "amount": 105.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "scheduled"
+    },
+    {
+      "id": 18,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Checking Energy",
+      "amount": 15.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "unable to pay"
+    },
+    {
+      "id": 19,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Checking Energy",
+      "amount": 20.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "processing"
+    },
+    {
+      "id": 20,
+      "receipt": "https://www.energyaustralia.com.au/modules/custom/ea_bills_explained_gas/images/gas-bill-guide-page-1.jpg",
+      "logo": "https://i.postimg.cc/x8YGbZLG/energyaustralia.png",
+      "company": "Checking Energy",
+      "amount": 20.4,
+      "billDate": "2018-12-10T13:45:00.000Z",
+      "status": "scheduled"
+    }
+  ]
+}
