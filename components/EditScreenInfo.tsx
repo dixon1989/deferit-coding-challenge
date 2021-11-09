@@ -1,6 +1,3 @@
-import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
-import { CompositeNavigationProp } from "@react-navigation/native";
-import * as WebBrowser from "expo-web-browser";
 import React from "react";
 import moment from "moment";
 import {
@@ -11,11 +8,9 @@ import {
   Dimensions,
   Modal,
 } from "react-native";
-import { getDataResults } from "../api";
-import { RootTabParamList } from "../types";
+import axios from "axios";
 import { MaterialCommunityIcons, FontAwesome } from "@expo/vector-icons";
-
-import { MonoText } from "./StyledText";
+import { getDataResults, useBillsData } from "../api"
 import { Text, View } from "./Themed";
 import { ListItem, Avatar, Overlay } from "react-native-elements";
 
@@ -23,12 +18,11 @@ const windowWidth = Dimensions.get("window").width - 100;
 const windowHeight = Dimensions.get("window").height - 350;
 
 export default function EditScreenInfo({ navigation }: any) {
-  const [mockData, setMockData] = React.useState<any>();
   const [visible, setVisible] = React.useState(false);
   const [showStatus, setShowStatus] = React.useState(false);
   const [statusInfo, setStatusInfo] = React.useState("");
   const [viewBills, setViewBills] = React.useState("");
-  const [page, setPage] = React.useState(0);
+  const [billsData, fetchMore] = useBillsData();
   const toggleOverlay = () => {
     setVisible(!visible);
   };
@@ -62,19 +56,6 @@ export default function EditScreenInfo({ navigation }: any) {
     }
   };
 
-  const loadMore = () => {
-    setPage(page + 1)
-  }
-
-  React.useEffect(() => {
-    // Should Start grabbing data from webServices API
-    const load = async () => {
-      setMockData(await getDataResults());
-    };
-    load();
-  }, []);
-
-  console.log("zzzzzzzzzzzzz", mockData);
 
   const keyExtractor = (item: any, index: number) => index.toString();
 
@@ -86,6 +67,9 @@ export default function EditScreenInfo({ navigation }: any) {
           <ListItem.Title>{item.company}</ListItem.Title>
           <ListItem.Subtitle>
             {moment(item.billDate).format("LLL")}
+          </ListItem.Subtitle>
+          <ListItem.Subtitle>
+            {item.id}
           </ListItem.Subtitle>
           <ListItem.Subtitle>
             <View
@@ -136,10 +120,10 @@ export default function EditScreenInfo({ navigation }: any) {
     <View>
       <FlatList
         keyExtractor={keyExtractor}
-        data={mockData}
+        data={billsData}
         renderItem={renderItem}
-        onEndReached={loadMore}
         onEndReachedThreshold={100}
+        onEndReached={fetchMore}
       />
       <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
         <View>
