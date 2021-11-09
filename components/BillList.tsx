@@ -1,61 +1,25 @@
 import React from "react";
 import moment from "moment";
-import {
-  StyleSheet,
-  TouchableOpacity,
-  FlatList,
-  Image,
-  Dimensions,
-  Modal,
-} from "react-native";
-import axios from "axios";
+import { StyleSheet, TouchableOpacity, FlatList, Image } from "react-native";
 import { MaterialCommunityIcons, FontAwesome } from "@expo/vector-icons";
-import { getDataResults, useBillsData } from "../api"
+import { useBillsData } from "../api";
 import { Text, View } from "./Themed";
 import { ListItem, Avatar, Overlay } from "react-native-elements";
+import { billStatus, getBillStatus, windowWidth, windowHeight } from "../utils";
 
-const windowWidth = Dimensions.get("window").width - 100;
-const windowHeight = Dimensions.get("window").height - 350;
-
-export default function EditScreenInfo({ navigation }: any) {
+export default function BillList() {
   const [visible, setVisible] = React.useState(false);
   const [showStatus, setShowStatus] = React.useState(false);
   const [statusInfo, setStatusInfo] = React.useState("");
   const [viewBills, setViewBills] = React.useState("");
   const [billsData, fetchMore] = useBillsData();
+
   const toggleOverlay = () => {
     setVisible(!visible);
   };
   const toggleStatusInfo = () => {
     setShowStatus(!showStatus);
   };
-
-  const billStatus = (status: string) => {
-    switch (status) {
-      case "processing":
-        return "#FF963C";
-      case "scheduled":
-        return "#81C3D7";
-      case "unable to pay":
-        return "#E63B2E";
-      case "paid":
-        return "#ADC76F";
-      default:
-        return "#000000";
-    }
-  };
-
-  const getBillStatus = (status: string) => {
-    switch (status) {
-      case "processing":
-        return "This bill is currently in processing, it can take approx. 1-2 hours depending on the time of day.";
-      case "scheduled":
-        return "This bill is scheduled to be paid and will be paid on the due date, you're in good hands!";
-      default:
-        return "";
-    }
-  };
-
 
   const keyExtractor = (item: any, index: number) => index.toString();
 
@@ -68,9 +32,7 @@ export default function EditScreenInfo({ navigation }: any) {
           <ListItem.Subtitle>
             {moment(item.billDate).format("LLL")}
           </ListItem.Subtitle>
-          <ListItem.Subtitle>
-            {item.id}
-          </ListItem.Subtitle>
+          <ListItem.Subtitle>{item.id}</ListItem.Subtitle>
           <ListItem.Subtitle>
             <View
               style={{
@@ -122,7 +84,7 @@ export default function EditScreenInfo({ navigation }: any) {
         keyExtractor={keyExtractor}
         data={billsData}
         renderItem={renderItem}
-        onEndReachedThreshold={100}
+        onEndReachedThreshold={0.9}
         onEndReached={fetchMore}
       />
       <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
@@ -141,9 +103,6 @@ export default function EditScreenInfo({ navigation }: any) {
           <Text>{statusInfo}</Text>
         </View>
       </Overlay>
-      <TouchableOpacity onPress={() => navigation.navigate("BillInfo")}>
-        <Text>Click Test</Text>
-      </TouchableOpacity>
     </View>
   );
 }
