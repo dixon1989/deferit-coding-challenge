@@ -36,6 +36,14 @@ This README would normally document whatever steps are necessary to get your app
 - Moment (Date formatting)
 - Axios (Web Service)
 
+### Time Spent to Complete this project
+
+- Identify requirements and setup mock api data. (1 hour)
+- Initialize Expo Project, add required dependencies, testing api connection. (2 hour)
+- Implementing data and infinite scroll (4 hour)
+- Design decision (3 hour)
+- Code Clean up (1 hour)
+
 ### Who do I talk to?
 
 - Repo owner or admin - Dickson Lim
