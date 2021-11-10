@@ -1,27 +1,41 @@
 import React from "react";
 import moment from "moment";
-import { StyleSheet, TouchableOpacity, FlatList, Image } from "react-native";
+import {
+  StyleSheet,
+  TouchableOpacity,
+  FlatList,
+  Pressable,
+  ActivityIndicator,
+} from "react-native";
 import { MaterialCommunityIcons, FontAwesome } from "@expo/vector-icons";
-import { useBillsData } from "../api";
 import { Text, View } from "./Themed";
 import { ListItem, Avatar, Overlay } from "react-native-elements";
-import { billStatus, getBillStatus, windowWidth, windowHeight } from "../utils";
+import { billStatus, getBillStatus, useBillsData } from "../utils";
 
-export default function BillList() {
-  const [visible, setVisible] = React.useState(false);
+export default function BillList({ navigation }: any) {
   const [showStatus, setShowStatus] = React.useState(false);
-  const [statusInfo, setStatusInfo] = React.useState("");
-  const [viewBills, setViewBills] = React.useState("");
-  const [billsData, fetchMore] = useBillsData();
+  const [statusInfo, setStatusInfo] = React.useState({ logo: "", text: "" });
+  const [billsData, fetchMore, isLoading] = useBillsData();
 
-  const toggleOverlay = () => {
-    setVisible(!visible);
-  };
   const toggleStatusInfo = () => {
     setShowStatus(!showStatus);
   };
 
   const keyExtractor = (item: any, index: number) => index.toString();
+
+  const renderFooter = () => {
+    return (
+      <>
+        {isLoading ? (
+          <ActivityIndicator
+            style={styles.centerStyle}
+            size="small"
+            color="#000000"
+          />
+        ) : null}
+      </>
+    );
+  };
 
   const renderItem = ({ item }: any) => (
     <>
@@ -32,7 +46,6 @@ export default function BillList() {
           <ListItem.Subtitle>
             {moment(item.billDate).format("LLL")}
           </ListItem.Subtitle>
-          <ListItem.Subtitle>{item.id}</ListItem.Subtitle>
           <ListItem.Subtitle>
             <View
               style={{
@@ -66,14 +79,19 @@ export default function BillList() {
         <ListItem.Content right>
           <ListItem.Subtitle>$ {item.amount.toFixed(2)}</ListItem.Subtitle>
         </ListItem.Content>
-        <TouchableOpacity
-          onPress={() => {
-            setViewBills(item.receipt);
-            toggleOverlay();
+        <Pressable
+          onPress={async () => {
+            navigation.navigate("Modal", {
+              billName: item.company,
+              viewBills: item.receipt,
+            });
           }}
+          style={({ pressed }) => ({
+            opacity: pressed ? 0.5 : 1,
+          })}
         >
           <MaterialCommunityIcons name="receipt" size={25} />
-        </TouchableOpacity>
+        </Pressable>
       </ListItem>
     </>
   );
@@ -84,23 +102,14 @@ export default function BillList() {
         keyExtractor={keyExtractor}
         data={billsData}
         renderItem={renderItem}
+        ListFooterComponent={renderFooter}
         onEndReachedThreshold={0.9}
         onEndReached={fetchMore}
       />
-      <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
-        <View>
-          <Image
-            style={styles.imageWidth}
-            resizeMode="stretch"
-            source={{
-              uri: viewBills,
-            }}
-          />
-        </View>
-      </Overlay>
       <Overlay isVisible={showStatus} onBackdropPress={toggleStatusInfo}>
         <View style={styles.statusPopupContainer}>
-          <Text>{statusInfo}</Text>
+          <Text>{statusInfo.logo}</Text>
+          <Text>{statusInfo.text}</Text>
         </View>
       </Overlay>
     </View>
@@ -112,7 +121,10 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   statusPopupContainer: {
+    margin: 15,
     width: "80%",
   },
-  imageWidth: { width: windowWidth, height: windowHeight },
+  centerStyle: {
+    alignSelf: "center",
+  },
 });

@@ -10,7 +10,7 @@ export default function TabOneScreen({
 }: RootTabScreenProps<"TabOne">) {
   return (
     <View style={styles.container}>
-      <BillList />
+      <BillList navigation={navigation} />
     </View>
   );
 }

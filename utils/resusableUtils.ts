@@ -1,16 +1,25 @@
 import { Dimensions } from "react-native";
 
-export const windowWidth = Dimensions.get("window").width - 100;
-export const windowHeight = Dimensions.get("window").height - 350;
+export const windowWidth = Dimensions.get("window").width;
+export const windowHeight = Dimensions.get("window").height;
 
 export const getBillStatus = (status: string) => {
   switch (status) {
     case "processing":
-      return "This bill is currently in processing, it can take approx. 1-2 hours depending on the time of day.";
+      return {
+        logo: "🚚",
+        text: "This bill is currently in processing, it can take approx. 1-2 hours depending on the time of day.",
+      };
     case "scheduled":
-      return "This bill is scheduled to be paid and will be paid on the due date, you're in good hands!";
+      return {
+        logo: "📅",
+        text: "This bill is currently in processing, it can take approx. 1-2 hours depending on the time of day.",
+      };
     default:
-      return "";
+      return {
+        logo: "",
+        text: "",
+      };
   }
 };
 
